@@ -1,0 +1,770 @@
+/* ==========================================================
+   偽中国語研究会 公式サイト
+   style.css
+========================================================== */
+
+/* ---------- Color ---------- */
+
+:root {
+
+    --bg: #FAFAFA;
+    --primary: #1F4E79;
+    --header: #1E3A5F;
+    --accent: #C53D13;
+    --text: #222222;
+    --link: #2A6DBB;
+    --border: #DDDDDD;
+
+    --sidebar-width: 280px;
+    --header-height: 90px;
+
+}
+
+/* ---------- Reset ---------- */
+
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+    display:block;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    font-size:16px;
+
+}
+
+body{
+
+    font-family:"Noto Sans JP","Noto Sans",sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    line-height:1.8;
+
+    overflow-x:hidden;
+
+}
+
+/* ---------- Link ---------- */
+
+a{
+
+    color:var(--link);
+
+    text-decoration:none;
+
+}
+
+a:hover{
+
+    color:var(--accent);
+
+}
+
+/* ---------- Header ---------- */
+
+header{
+
+    background:var(--header);
+
+    color:white;
+
+    height:var(--header-height);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.hamburger{
+
+    position:absolute;
+
+    top:50%;
+
+    right:20px;
+
+    transform:translateY(-50%);
+
+}
+
+.logo-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.logo-area h1{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+/* ---------- Hamburger ---------- */
+
+#menu-toggle{
+
+    display:none;
+
+}
+
+.hamburger::before{
+
+    content:"☰";
+
+}
+
+#menu-toggle:checked + .hamburger::before{
+
+    content:"✕";
+
+}
+
+.hamburger{
+
+    display:none;
+
+    position:fixed;
+
+    top:22px;
+
+    right:20px;
+
+    z-index:1200;
+
+    font-size:2rem;
+
+    color:white;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+/* ---------- Layout ---------- */
+
+.container{
+
+    display:flex;
+
+    min-height:calc(100vh - var(--header-height));
+
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar{
+
+    width:var(--sidebar-width);
+
+    border-right:1px solid var(--border);
+
+    background:white;
+
+    padding:20px;
+
+}
+
+.sidebar section{
+
+    margin-bottom:30px;
+
+}
+
+.sidebar h2{
+
+    background:var(--header);
+
+    color:white;
+
+    padding:10px;
+
+    font-size:1rem;
+
+    margin-bottom:10px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.sidebar li:last-child{
+
+    border-bottom:none;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    padding:10px;
+
+}
+
+.sidebar a:hover{
+
+    background:#EEF4FB;
+
+}
+
+input,
+textarea,
+select,
+button{
+
+    font:inherit;
+
+}
+
+/* ---------- Main ---------- */
+
+main{
+
+    flex:1;
+
+    padding:40px;
+
+    min-width:0;
+
+}
+
+.hero{
+
+    margin-bottom:50px;
+
+}
+
+main h2{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+    border-left:6px solid var(--accent);
+
+    padding-left:12px;
+
+}
+
+main section{
+
+    margin-bottom:40px;
+
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+
+    background:var(--header);
+
+    color:white;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.footer-links{
+
+    margin-top:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+    color:white;
+
+}
+
+.footer-links a:hover{
+
+    color:#FFD4C7;
+
+}
+
+/* ---------- 404 ---------- */
+
+.error-page{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    text-align:center;
+
+}
+
+.error-page h1{
+
+    color:var(--primary);
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+}
+
+.error-page p{
+
+    font-size:1.6rem;
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media screen and (max-width:900px){
+
+    .hamburger{
+
+        display:block;
+
+    }
+
+    .container{
+
+        display:block;
+
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        top:var(--header-height);
+
+        right:-320px;
+
+        width:300px;
+
+        height:calc(100vh - var(--header-height));
+
+        overflow-y:auto;
+
+        transition:.3s;
+
+        box-shadow:-4px 0 10px rgba(0,0,0,.15);
+
+        z-index:1100;
+
+    }
+
+    #menu-toggle:checked ~ .container .sidebar{
+
+        right:0;
+
+    }
+
+    main{
+
+        padding:25px;
+
+    }
+
+    .logo-area h1{
+
+        font-size:1.4rem;
+
+    }
+
+}
+
+.site-logo{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.site-logo img{
+
+    height:80px;
+
+    width:auto;
+
+    display:block;
+
+}
+
+@media screen and (max-width:900px){
+
+    .site-logo img{
+
+        height:60px;
+
+    }
+
+}
+
+@media screen and (max-width:480px){
+
+    .site-logo img{
+
+        height:50px;
+
+    }
+
+}
+
+/* ---------- Small Smartphone ---------- */
+
+@media screen and (max-width:480px){
+
+    header{
+
+        padding:0 15px;
+
+    }
+
+    .logo-area{
+
+        gap:12px;
+
+    }
+
+    .logo-area h1{
+
+        font-size:1.15rem;
+
+    }
+
+    main{
+
+        padding:18px;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        right:-100%;
+
+    }
+
+}
+
+.skip-link{
+
+    position:absolute;
+
+    left:-9999px;
+
+    top:0;
+
+    background:var(--accent);
+
+    color:white;
+
+    padding:12px;
+
+    z-index:9999;
+
+}
+
+.skip-link:focus{
+
+    left:10px;
+
+    top:10px;
+
+}
+
+.sidebar a.active{
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:bold;
+
+    border-left:5px solid var(--accent);
+
+}
+
+.breadcrumb{
+
+    margin-bottom:30px;
+
+    font-size:.95rem;
+
+}
+
+.breadcrumb ol{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.5rem;
+
+    list-style:none;
+
+}
+
+.breadcrumb li::after{
+
+    content:"›";
+
+    margin-left:.5rem;
+
+    color:#999;
+
+}
+
+.breadcrumb li:last-child::after{
+
+    display:none;
+
+}
+
+.breadcrumb a{
+
+    color:var(--link);
+
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible{
+
+    outline:3px solid var(--accent);
+
+    outline-offset:3px;
+
+}
+
+::selection{
+
+    background:var(--accent);
+
+    color:white;
+
+}
+
+h2,
+h3,
+h4{
+
+    scroll-margin-top:110px;
+
+}
+
+@media (prefers-color-scheme: dark){
+
+:root{
+
+    --bg:#181818;
+
+    --text:#F5F5F5;
+
+    --border:#444;
+
+    --primary:#6FA9E6;
+
+    --header:#173455;
+
+    --link:#88BFFF;
+
+}
+
+.sidebar{
+
+    background:#222;
+
+}
+
+.sidebar a:hover{
+
+    background:#2E4058;
+
+}
+
+}
+
+@media (prefers-reduced-motion: reduce){
+
+*{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
+
+@media print{
+
+header,
+footer,
+.sidebar,
+.hamburger{
+
+    display:none;
+
+}
+
+main{
+
+    width:100%;
+
+    padding:0;
+
+}
+
+body{
+
+    background:white;
+
+    color:black;
+
+    font-size:11pt;
+
+}
+
+a{
+
+    color:black;
+
+    text-decoration:none;
+
+}
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+@media (prefers-reduced-motion: reduce){
+
+html{
+
+    scroll-behavior:auto;
+
+}
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:25px 0;
+
+}
+
+th{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+th,
+td{
+
+    border:1px solid var(--border);
+
+    padding:10px;
+
+}
+
+code{
+
+    background:#F2F2F2;
+
+    padding:2px 6px;
+
+    border-radius:4px;
+
+}
+
+pre{
+
+    background:#F2F2F2;
+
+    padding:16px;
+
+    overflow:auto;
+
+}
+
+@media (prefers-color-scheme: dark){
+
+code,
+pre{
+
+    background:#2B2B2B;
+
+}
+
+}
